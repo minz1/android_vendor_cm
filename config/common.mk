@@ -101,6 +101,10 @@ endif
 # Bootanimation
 #PRODUCT_PACKAGES += \
 #    bootanimation.zip
+ 
+# Substratum
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/Substratum/Substratum.apk:system/priv-app/Substratum/Substratum.apk
 
 # Required CM packages
 PRODUCT_PACKAGES += \
@@ -225,6 +229,14 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
+
+# OMS MASQUERADE
+PRODUCT_PACKAGES += \
+     masquerade
+
+# OMS Verified
+PRODUCT_PROPERTY_OVERRIDES := \
+     ro.substratum.verified=true
 
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
